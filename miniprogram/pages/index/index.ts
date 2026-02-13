@@ -5,6 +5,8 @@ Page({
     gameOver: false,
     gameWin: false,
   },
+  startX: 0,
+  startY: 0,
 
   onLoad() {
     this.initGame();
@@ -136,6 +138,30 @@ Page({
   onRight() { this.move('right'); },
   onUp() { this.move('up'); },
   onDown() { this.move('down'); },
+
+  onTouchStart(e: WechatMiniprogram.TouchEvent) {
+    this.startX = e.touches[0].clientX;
+    this.startY = e.touches[0].clientY;
+  },
+  onTouchMove(e: WechatMiniprogram.TouchEvent) {},
+  onTouchEnd(e: WechatMiniprogram.TouchEvent) {
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+
+    // 判断滑动方向
+    const dx = endX - this.startX;
+    const dy = endY - this.startY;
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+      // 横向滑动
+      if (dx > 0) this.move('right');
+      else this.move('left');
+    } else {
+      // 纵向滑动
+      if (dy > 0) this.move('down');
+      else this.move('up');
+    }
+  },
 
   restart() {
     this.initGame();

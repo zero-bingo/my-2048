@@ -5,7 +5,12 @@
     <button class="restart-btn" bindtap="restart">🔄</button>
   </view>
 
-  <view class="board">
+  <view
+    class="board"
+    bindtouchstart="onTouchStart"
+    bindtouchmove="onTouchMove"
+    bindtouchend="onTouchEnd"
+  >
     <block wx:for="{{board}}" wx:key="index">
       <view class="row">
         <block wx:for="{{item}}" wx:key="index">
@@ -16,16 +21,4 @@
       </view>
     </block>
   </view>
-
-  <view class="controls">
-    <button class="ctrl-btn" bindtap="onUp">↑</button>
-    <view class="ctrl-row">
-      <button class="ctrl-btn" bindtap="onLeft">←</button>
-      <button class="ctrl-btn" bindtap="onDown">↓</button>
-      <button class="ctrl-btn" bindtap="onRight">→</button>
-    </view>
-  </view>
-
-  <view wx:if="{{gameWin}}" class="overlay">🎉 你赢了！</view>
-  <view wx:if="{{gameOver}}" class="overlay">💀 游戏结束</view>
 </view>
