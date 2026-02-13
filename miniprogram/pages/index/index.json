@@ -1,5 +1,4 @@
 {
-  "usingComponents": {
-    "navigation-bar": "/components/navigation-bar/navigation-bar"
-  }
+  "navigationBarTitleText": "2048",
+  "enablePullDownRefresh": false
 }

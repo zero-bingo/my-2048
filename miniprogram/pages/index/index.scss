@@ -1,62 +1,96 @@
-/**index.scss**/
-page {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-.scrollarea {
-  flex: 1;
-  overflow-y: hidden;
-}
+// pages/index/index.scss
+@import '../../utils/variables';
 
-.userinfo {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #aaa;
-  width: 80%;
+  padding: 20rpx;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.usermotto {
-  margin-top: 200px;
-}
-
-.avatar-wrapper {
-  padding: 0;
-  width: 56px !important;
-  border-radius: 8px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.avatar {
-  display: block;
-  width: 56px;
-  height: 56px;
-}
-
-.nickname-wrapper {
-  display: flex;
+.header {
   width: 100%;
-  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.score {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #776e65;
+}
+
+.restart-btn {
+  width: 60rpx;
+  height: 60rpx;
+  padding: 0;
+  line-height: 0;
+  font-size: 28rpx;
+}
+
+.board {
+  width: 600rpx;
+  height: 600rpx;
+  background: $board-bg;
+  border-radius: 10rpx;
+  padding: 20rpx;
   box-sizing: border-box;
-  border-top: .5px solid rgba(0, 0, 0, 0.1);
-  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
-  color: black;
 }
 
-.nickname-label {
-  width: 105px;
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.row:last-child { margin-bottom: 0; }
+
+.cell {
+  width: 130rpx;
+  height: 130rpx;
+  background: $cell-base;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 36rpx;
+  color: #776e65;
 }
 
-.nickname-input {
-  flex: 1;
+.value-2 { background: #eee4da; }
+.value-4 { background: #ede0c8; }
+.value-8 { background: #f2b179; color: white; }
+.value-16 { background: #f59563; color: white; }
+.value-32 { background: #f67c5f; color: white; }
+.value-64 { background: #f65e3b; color: white; }
+.value-128 { background: #edcf72; color: white; font-size: 32rpx; }
+.value-256 { background: #edcc61; color: white; font-size: 32rpx; }
+.value-512 { background: #edc850; color: white; font-size: 32rpx; }
+.value-1024 { background: #edc53f; color: white; font-size: 28rpx; }
+.value-2048 { background: #edc22e; color: white; font-size: 28rpx; }
+
+.controls {
+  margin-top: 40rpx;
+}
+.ctrl-btn {
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 36rpx;
+}
+
+overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
 }
